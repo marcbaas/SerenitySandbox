@@ -1,5 +1,6 @@
 package starter.duckduckgo;
 
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.Test;
 import net.thucydides.core.annotations.Managed;
@@ -22,6 +23,10 @@ class WhenSearchingByKeyword {
     void theKeywordShouldAppearInTheResultsSidebar() {
         navigate.toTheDuckDuckGoSearchPage();
         search.byKeyword("Cucumber");
-        assertThat(searchResultSidebar.heading()).isEqualTo("Cucumber");
+        //assertThat(searchResultSidebar.heading()).isEqualTo("Cucumber");
+
+        Serenity.reportThat("The keyword should appear in the sidebar heading",
+                () -> assertThat(searchResultSidebar.heading()).isEqualTo("Cucumber")
+        );
     }
 }
