@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class WhenSearchingByKeyword {
 
     //@Managed(driver = "chrome", options = "headless")
-    @Managed(driver = "chrome", options = "start-maximized")
+    @Managed(driver = "chrome", options = "start-maximized", uniqueSession = true)
     WebDriver driver;
 
     NavigateActions navigate;
